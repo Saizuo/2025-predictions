@@ -1,0 +1,124 @@
+:root {
+    --neon-pink: #ff61ef;
+    --neon-blue: #61efff;
+    --neon-green: #61ff8d;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Comic Neue', cursive;
+    margin: 0;
+    overflow-x: hidden;
+    background-image: 
+        linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
+        linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
+        linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
+    background-size: 20px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.glowing-header {
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    animation: glow 2s ease-in-out infinite alternate;
+    margin-bottom: 50px;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--neon-pink),
+                     0 0 20px var(--neon-blue),
+                     0 0 30px var(--neon-green);
+    }
+    to {
+        text-shadow: 0 0 20px var(--neon-pink),
+                     0 0 30px var(--neon-blue),
+                     0 0 40px var(--neon-green);
+    }
+}
+
+.rotating-emoji {
+    font-size: 50px;
+    animation: spin 3s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+.prediction-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.rainbow-border {
+    position: relative;
+}
+
+.rainbow-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--neon-pink), 
+        var(--neon-blue), 
+        var(--neon-green), 
+        var(--neon-pink));
+    border-radius: 17px;
+    z-index: -1;
+    animation: borderRotate 3s linear infinite;
+}
+
+@keyframes borderRotate {
+    100% { filter: hue-rotate(360deg); }
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.floating-doge {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-doge img {
+    width: 100px;
+    height: 100px;
+}
