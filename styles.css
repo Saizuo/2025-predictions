@@ -122,3 +122,26 @@ body {
     width: 100px;
     height: 100px;
 }
+
+.prediction-button {
+    font-family: 'Press Start 2P', cursive;
+    padding: 15px 25px;
+    font-size: 16px;
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: transform 0.2s;
+}
+
+.prediction-button:hover {
+    transform: scale(1.1);
+    animation: borderRotate 1s linear infinite;
+}
+
+#random-prediction {
+    max-width: 500px;
+    margin: 20px auto;
+}

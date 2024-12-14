@@ -1,20 +1,37 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.card');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseover', () => {
-            playRandomSound();
-        });
-    });
+import { predictions } from './predictions.js';
 
-    function playRandomSound() {
-        const sounds = ['wow', 'oof', 'yeet'];
-        const sound = sounds[Math.floor(Math.random() * sounds.length)];
-        const audio = new Audio(`https://www.myinstants.com/media/sounds/${sound}.mp3`);
-        audio.volume = 0.2;
-        audio.play();
-    }
+document.addEventListener('DOMContentLoaded', () => {
+    const generateButton = document.getElementById('prediction-generator');
+    const predictionContainer = document.getElementById('random-prediction');
+
+    generateButton.addEventListener('click', () => {
+        const randomPrediction = predictions[Math.floor(Math.random() * predictions.length)];
+        
+        predictionContainer.innerHTML = `
+            <h2>${randomPrediction.title}</h2>
+            <img src="${randomPrediction.gif}" alt="prediction gif">
+            <p>${randomPrediction.text}</p>
+        `;
+        
+        predictionContainer.style.display = 'block';
+        
+        // Add some flair
+        predictionContainer.style.animation = 'none';
+        predictionContainer.offsetHeight; // Trigger reflow
+        predictionContainer.style.animation = 'popIn 0.5s ease-out';
+    });
 });
+
+// Add this CSS animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes popIn {
+        0% { transform: scale(0); }
+        70% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+`;
+document.head.appendChild(style);
 
 // Add confetti explosion on click
 document.addEventListener('click', (e) => {
