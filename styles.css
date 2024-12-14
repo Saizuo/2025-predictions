@@ -208,3 +208,37 @@ body::after {
     max-width: 500px;
     margin: 20px auto;
 }
+
+.social-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.social-button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.social-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.twitter {
+    background: linear-gradient(45deg, #1DA1F2, #19608F);
+}
+
+.telegram {
+    background: linear-gradient(45deg, #0088cc, #005580);
+}
+
+.pump {
+    background: linear-gradient(45deg, #FF4B2B, #FF416C);
+}
